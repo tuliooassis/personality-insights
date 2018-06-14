@@ -1,0 +1,31 @@
+<mat-card class="card">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>Personality Insights</mat-card-title>
+    <mat-card-subtitle>Descubra sua personalidade através do seu twitter!</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <form class="form">
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Usuário do twitter">
+      </mat-form-field>
+    
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Twitter username">
+      </mat-form-field>
+    </form>
+    
+    <mat-form-field>
+      <mat-select placeholder="Linguagem">
+        <mat-option *ngFor="let language of allowedLanguages" [value]="language.value">
+          {{ language.viewValue }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button>LIKE</button>
+    <button mat-button>SHARE</button>
+  </mat-card-actions>
+</mat-card>
