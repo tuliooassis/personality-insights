@@ -4,7 +4,7 @@ Para rodar o back-end:
  - nodejs server/app.js
 
 Para rodar o front-end:
- -
+ - em breve
 
 
 Alguns comandos importantes
