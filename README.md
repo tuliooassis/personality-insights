@@ -1,11 +1,18 @@
 # personality-insights
 
+Esta aplicação é uma integração do Personality Insights, Language Translator e Twitter.
+
+## Back-end
+
+Rotas
+ - localhost:3000/:username/:language
+ 
 Para rodar o back-end:
  - nodejs server/app.js
 
+## Front-end
 Para rodar o front-end:
  - ng serve
-
 
 Alguns comandos importantes
 
