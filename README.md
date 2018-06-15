@@ -8,19 +8,8 @@ Rotas
  - localhost:3000/:username/:language
  
 Para rodar o back-end:
- - nodejs server/app.js
+ - npm start
 
 ## Front-end
 Para rodar o front-end:
  - ng serve
-
-Alguns comandos importantes
-
- - npm install watson-developer-cloud --save
- - npm install twit
- - npm install express --save
- - npm install babel-register babel-preset-env --save-dev
-
-
- - npm install -g @angular/cli
-

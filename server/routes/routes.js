@@ -3,12 +3,17 @@
 import Watson from '../controllers/Watson';
 import Twitter from '../controllers/Twitter';
 import express from 'express';
+import cors from 'cors';
+import path from 'path';
 
 const app = express();
 const port = 3000;
 const ENV = process.env.NODE_ENV || 'dev';
 
-app.get('/:user/:language', (req, res) => {
+app.use(cors());
+app.use(express.static(path.join(__dirname, '../../client/dist/client/')));
+
+app.get('/api/:user/:language', (req, res) => {
 	Twitter.getTwits(req.params.user, req.params.language)
 		.then((data) => {
 			Watson.getPersonality(data)
@@ -19,5 +24,10 @@ app.get('/:user/:language', (req, res) => {
 		})
 		.catch((err) => next(err));
 });
+
+app.all('*', (req, res) => {
+	res.sendFile(path.join(__dirname, '../../client/dist/client/index.html'));
+});
+    
 
 app.listen(port, () => console.log(`Running on port ${port}`));
