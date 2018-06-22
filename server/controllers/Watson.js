@@ -6,14 +6,14 @@ class Watson{
     constructor(){
 		this.personalityInsights = new PersonalityInsightsV3({
 			version: '2017-10-13',
-			username: 'd157521e-e611-4c42-87f9-ee704522175a',
-			password: '3aWr2jfSfLmW'
+			username: process.env.WATSON_PERSONALITY_INSIGHTS_USERNAME,
+			password: process.env.WATSON_PERSONALITY_INSIGHTS_PASSWORD
 		});
 
 		this.languageTranslator = new LanguageTranslatorV3({
 			version: '2018-05-01',
-			username: 'aba1ccfb-b6dc-47cc-9261-4f64de9c9c21',
-			password: '4Y8ttUN2uU74'
+			username: process.env.WATSON_LANGUAGE_TRANSLATOR_USERNAME,
+			password: process.env.WATSON_LANGUAGE_TRANSLATOR_PASSWORD
 		  });
     }
 
@@ -31,7 +31,7 @@ class Watson{
         return new Promise((resolve, reject) => {
             this.personalityInsights.profile(profileParams, (err, data) => {
                 if(err){
-                    reject({ msg:'Internal Error - Watson cannot get profile', status: 500, err: err })
+                    reject({ msg:'Watson Personality Error', status: 500, err: err })
                 } else {
                     resolve(data);
                 }

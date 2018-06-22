@@ -1,27 +1,26 @@
 <mat-card class="card">
-  <mat-card-header>
-    <div mat-card-avatar class="example-header-image"></div>
-    <mat-card-title>Personality Insights</mat-card-title>
-    <mat-card-subtitle>Descubra sua personalidade através do seu twitter!<br>Mais utilidades serão implementadas em breve!</mat-card-subtitle>
-  </mat-card-header>
-  <mat-card-content>
-    <form class="form">
-      <mat-form-field class="full-width">
-        <input matInput placeholder="Usuário do twitter" [formControl]="username" required>
-      </mat-form-field>
-    </form>
-    
-    <mat-form-field >
-      <mat-select placeholder="Linguagem" [formControl]="language" required>
-        <mat-option *ngFor="let language of allowedLanguages" [value]="language.value">
-          {{ language.viewValue }}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-    
-  </mat-card-content>
-  <button mat-button (click)="getPersona()">AVALIAR</button>
+	<mat-card-header>
+		<mat-card-title>Personality Insights</mat-card-title>
+		<mat-card-subtitle>Descubra sua personalidade através do Twitter</mat-card-subtitle>
+	</mat-card-header>
+	<mat-card-content>
+		<form class="form" [formGroup]="form">
+			<mat-form-field>
+				<input matInput placeholder="Usuário do twitter" formControlName="username" required>
+			</mat-form-field>
 
+			<mat-form-field>
+				<mat-select placeholder="Linguagem" formControlName="language" required>
+					<mat-option *ngFor="let language of allowedLanguages" [value]="language.value">
+						{{ language.viewValue }}
+					</mat-option>
+				</mat-select>
+			</mat-form-field>
+		</form>
+	</mat-card-content>
+	<mat-card-actions>
+		<button mat-button (click)="getPersona()">AVALIAR</button>
+	</mat-card-actions>
 </mat-card>
 
 <div [innerHTML]="dataForShow"></div>

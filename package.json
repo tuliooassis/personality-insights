@@ -4,18 +4,14 @@
   "description": "",
   "scripts": {
     "dev": "nodemon server/server.js --exec babel-node --presets es2015,stage-2",
-    "start":"node server/app.js"
+    "start": "node server/app.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.18.2",
     "cors": "^2.8.4",
-    "dotenv": "^5.0.1",
     "es2015": "0.0.0",
     "express": "^4.16.3",
-    "helmet": "^3.12.0",
-    "morgan": "^1.9.0",
     "presets": "^0.1.0",
     "twit": "^2.2.9",
     "watson-developer-cloud": "^3.5.0"
@@ -30,6 +26,8 @@
     "babel-preset-stage-2": "^6.24.1",
     "babel-register": "^6.26.0",
     "babel-runtime": "^6.26.0",
+    "dotenv": "^5.0.1",
+    "node-env-run": "^3.0.2",
     "nodemon": "^1.17.2"
   }
 }

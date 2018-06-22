@@ -1,7 +1,9 @@
 // Transpile all code following this line with babel and use 'env' (aka ES6) preset.
 require('babel-register')({
-        presets: [ 'env' ]
-    })
-    
-    // Import the rest of our application.
-    module.exports = require('./routes/routes.js')
+    presets: [ 'env' ]
+})
+
+// Import the rest of our application.
+
+require('dotenv/config');
+module.exports = require('./routes/routes.js')

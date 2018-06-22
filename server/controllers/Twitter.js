@@ -1,15 +1,15 @@
 'use strict';
 import TwitterApi from 'twit';
 import Watson from './Watson';
-import async from 'async';
+
 class Twitter {
 	constructor(){
 		this.twitter = new TwitterApi({
-			consumer_key: "nVwpnSkx4gNVIqSkSKkWrYL9T",
-			consumer_secret: "8ETqxoJqbLOs2kj6KBiZnA1xjE3TNuq7pV3h3lcvMbcfuT90RS",
-			access_token: "749339684673822720-OSUxETWucIRGNkyV9NPtnTIGGGKQ7lc",
-			access_token_secret: "ZAJj6lXF9YyoxLd7RzET3EVyLCRP6bxwR8EDo661UJ3MK",
-			timeout_ms: 60*1000
+			consumer_key: process.env.TWITTER_CONSUMER_KEY,
+			consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
+			access_token: process.env.TWITTER_ACCESS_TOKEN,
+			access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET,
+			timeout_ms: 60000
 		});
 		this.watson;
 	}
@@ -39,7 +39,7 @@ class Twitter {
 							resolve({ "contentItems" : [ newJson ] });
 						})
 						.catch((err) => {
-							console.log("ERROR: " + err);
+							reject({status: 500, msg: 'Watson Translate Error', err: err});
 						});
 					}
 					else {
